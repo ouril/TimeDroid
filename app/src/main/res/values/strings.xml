@@ -3,6 +3,8 @@
     <string name="action_settings">Settings</string>
     <string name="falseButtom">False</string>
     <string name="trueButtom">True</string>
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
     <string name="question">Is Canberra the capital of Australia?</string>
 
 </resources>
