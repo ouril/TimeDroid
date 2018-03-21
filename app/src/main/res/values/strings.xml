@@ -5,6 +5,6 @@
     <string name="trueButtom">True</string>
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
-    <string name="question">Is Canberra the capital of Australia?</string>
-
+    <string name="question_Canbera">Is Canberra the capital of Australia?</string>
+    <string name="question_Astana">Is Astana the capital of Russia?</string>
 </resources>

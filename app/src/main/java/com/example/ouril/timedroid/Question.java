@@ -12,4 +12,12 @@ public class Question {
         mTestResId = textResId;
         mAnsverTrue = answerTrue;
     }
+
+    public int getTestResId() {
+        return mTestResId;
+    }
+
+    public void setTestResId(int testResId) {
+        mTestResId = testResId;
+    }
 }
