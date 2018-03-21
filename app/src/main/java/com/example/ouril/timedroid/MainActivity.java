@@ -27,45 +27,61 @@ public class MainActivity extends AppCompatActivity {
 
     private int mCurrenIndex = 0;
 
-    public MainActivity() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mQuestionTextView = (TextView)findViewById(R.id.question);
+        mQuestionTextView = findViewById(R.id.question);
+        mNextButton = findViewById(R.id.next);
+        mTrueButton = findViewById(R.id.True);
+        mFalseButton = findViewById(R.id.falseBottom);
+
         int question = mQuestionBank[mCurrenIndex].getTestResId();
         mQuestionTextView.setText(question);
 
-        mNextButton = findViewById(R.id.next);
-        mNextButton.setOnClickListener(new View.OnClickListener(){
+        mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mCurrenIndex = (mCurrenIndex + 1) % mQuestionBank.length;
-                int question = mQuestionBank[mCurrenIndex].getTestResId();
-                mQuestionTextView.setText(question);
+                updateQuestion();
             }
         });
 
-
-        mTrueButton = (Button) findViewById(R.id.True);
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "True", Toast.LENGTH_SHORT).show();
+               chechAnswer(true);
             }
         });
 
-        mFalseButton = (Button) findViewById(R.id.falseBottom);
+
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "False", Toast.LENGTH_SHORT).show();
+                chechAnswer(false);
             }
         });
-
-
     }
+
+    private void updateQuestion() {
+        int question = mQuestionBank[mCurrenIndex].getTestResId();
+        mQuestionTextView.setText(question);
+    }
+
+    private void chechAnswer(boolean userPressedTrue) {
+        boolean answerIsTrue = mQuestionBank[mCurrenIndex].isAnswerTrue();
+        int messageResId = 0;
+
+        if (userPressedTrue == answerIsTrue) {
+            messageResId = R.string.correct_toast;
+        } else {
+            messageResId = R.string.incorrect_toast;
+        }
+        Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
+    }
+
+    //private void
+
 }

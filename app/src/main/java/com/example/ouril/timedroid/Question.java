@@ -20,4 +20,8 @@ public class Question {
     public void setTestResId(int testResId) {
         mTestResId = testResId;
     }
+
+    public boolean isAnswerTrue() {
+        return  mAnsverTrue;
+    }
 }
